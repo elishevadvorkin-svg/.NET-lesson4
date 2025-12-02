@@ -1,6 +1,102 @@
-@EventsAPI_commit4_HostAddress = http://localhost:5021
+### Events API Testing
 
-GET {{EventsAPI_commit4_HostAddress}}/weatherforecast/
-Accept: application/json
+### Get all events
+GET https://localhost:7083/api/events
+
+### Get all planned events
+GET https://localhost:7083/api/events?status=Planned
+
+### Get event by ID
+GET https://localhost:7083/api/events/1
+
+### Create new event
+POST https://localhost:7083/api/events
+Content-Type: application/json
+
+{
+  "title": "New Event",
+  "customerId": 2,
+  "roomId": 2,
+  "status": "Planned"
+}
+
+### Update event
+PUT https://localhost:7083/api/events/1
+Content-Type: application/json
+
+{
+  "title": "Updated Event",
+  "customerId": 1,
+  "roomId": 3,
+  "status": "Ongoing"
+}
+
+### Delete event
+DELETE https://localhost:7083/api/events/3
 
 ###
+
+### Get all customers
+GET https://localhost:7083/api/customers
+
+### Get active customers only
+GET https://localhost:7083/api/customers?isActive=true
+
+### Get customer by ID
+GET https://localhost:7083/api/customers/1
+
+### Create new customer
+POST https://localhost:7083/api/customers
+Content-Type: application/json
+
+{
+  "name": "Alice Brown",
+  "email": "alice@example.com",
+  "phone": "0503332222",
+  "isActive": true
+}
+
+### Update customer
+PUT https://localhost:7083/api/customers/1
+Content-Type: application/json
+
+{
+  "name": "John Updated",
+  "email": "john.updated@example.com",
+  "phone": "0501111111",
+  "isActive": true
+}
+
+### Delete customer
+DELETE https://localhost:7083/api/customers/3
+
+###
+
+### Get all rooms
+GET https://localhost:7083/api/rooms
+
+### Get room by ID
+GET https://localhost:7083/api/rooms/1
+
+### Create new room
+POST https://localhost:7083/api/rooms
+Content-Type: application/json
+
+{
+  "name": "Breakout Room",
+  "capacity": 10,
+  "location": "Floor 1"
+}
+
+### Update room
+PUT https://localhost:7083/api/rooms/1
+Content-Type: application/json
+
+{
+  "name": "Conference Room A Updated",
+  "capacity": 60,
+  "location": "Floor 1"
+}
+
+### Delete room
+DELETE https://localhost:7083/api/rooms/3
